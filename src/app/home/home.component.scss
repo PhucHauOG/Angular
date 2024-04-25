@@ -1,0 +1,32 @@
+  .h1 {
+    color: aliceblue;
+  }
+
+  .p {
+    color: aliceblue;
+  }
+
+  .header {
+    background-color: #E60012;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .games {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .game {
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .game img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+  }

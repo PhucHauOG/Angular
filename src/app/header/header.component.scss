@@ -1,0 +1,36 @@
+.hero {
+    background-image: linear-gradient(to bottom, #f7f7f7, #e7e7e7);
+    padding: 50px 0;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .hero button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .featured-games {
+    padding: 50px 0;
+  }
+  
+  .game-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 
+}

@@ -27,3 +27,22 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .navbar {
+    background-color: #E60012;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    max-height: 100svh;
+    align-items: center;
+  }
+  .side-menu {
+    margin: 0;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .a {
+    text-align: center;
+    align-content: center;
+  }

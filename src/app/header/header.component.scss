@@ -1,48 +1,23 @@
 .hero {
     background-image: linear-gradient(to bottom, #E60012, #E60012);
-    padding: 50px 0;
+    padding: 50px auto 0;
     border: none;
     border-radius: 5px;
   }
   
   .hero h1 {
     display: flex;
+    justify-content: center;
     font-size: 36px;
     font-weight: bold;
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .hero p {
+    display: flex;
+    justify-content: center;
     font-size: 18px;
     color: #ffffff;
-    margin-bottom: 30px;
-  }
-  
-  .hero button {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .navbar {
-    background-color: #E60012;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    max-height: 100svh;
-    align-items: center;
-  }
-  .side-menu {
-    margin: 0;
-    display: grid;
-    gap: 2rem;
-  }
-
-  .a {
-    text-align: center;
-    align-content: center;
+    margin-bottom: 20px;
   }

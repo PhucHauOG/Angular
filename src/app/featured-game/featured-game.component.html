@@ -1,19 +1,17 @@
-
 <!-- Featured games section -->
-<section class="featured-games">
-    <div class="container">
-      <h2>Featured Games</h2>
-      <div>
-        <div class="col-md-3" *ngFor="let game of featuredGames">
-          <div class="game-card">
-            <img src="assets/img/{{ game.image }}" alt="{{ game.name }}">
-            <h3>{{ game.name }}</h3>
-            <p>{{ game.description }}</p>
-            <button class="btn btn-primary">Buy Now</button>
-            <br>
-            <button class="btnAddToCart">Add to cart</button>
-          </div>
+    <h2>Featured Games</h2>
+      <ul>
+        <div *ngFor="let game of featuredGames">
+          <li>
+            <div class="game-card">
+              <img src="assets/img/{{ game.image }}" alt="{{ game.name }}">
+              <h3>{{ game.name }}</h3><br>
+              <p>{{ game.description }}</p>
+              <div class="btn">
+                <button class="btnBuyNow">Buy Now</button>
+                <button class="btnAddToCart">Add to cart</button>
+              </div>
+            </div>
+          </li>
         </div>
-      </div>
-    </div>
-  </section>
+      </ul>

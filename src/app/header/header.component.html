@@ -1,29 +1,3 @@
-<!-- Header section -->
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Nintendo Game Shop</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Games</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Accessories</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Deals</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  
   <!-- Hero section -->
   <section class="hero">
     <div class="container">
@@ -31,27 +5,8 @@
         <div class="col-md-6">
           <h1>Welcome to Nintendo Game Shop</h1>
           <p>Explore our vast collection of Nintendo games and accessories</p>
-          <button class="btn btn-primary">Shop Now</button>
-        </div>
-        <div class="col-md-6">
-          <img src="assets/nintendo-switch.jpg" alt="Nintendo Switch">
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Featured games section -->
-  <section class="featured-games">
-    <div class="container">
-      <h2>Featured Games</h2>
-      <div class="row">
-        <div class="col-md-3" *ngFor="let game of featuredGames">
-          <div class="game-card">
-            <img src="assets/{{ game.image }}" alt="{{ game.name }}">
-            <h3>{{ game.name }}</h3>
-            <p>{{ game.description }}</p>
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
+          <img src="assets/img/nintendo-switch.jpg" alt="Nintendo Switch"><br>
+          <button class="btn btn-primary" >Shop Now</button>
         </div>
       </div>
     </div>
@@ -65,3 +20,29 @@
       <button class="btn btn-primary">Sign Up</button>
     </div>
   </section>
+
+  <!-- Header section -->
+<section class="detail">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Nintendo Game Shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Accessories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Deals</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</section>

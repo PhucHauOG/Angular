@@ -1,16 +1,21 @@
 .hero {
-    background-image: linear-gradient(to bottom, #f7f7f7, #e7e7e7);
+    background-image: linear-gradient(to bottom, #E60012, #E60012);
     padding: 50px 0;
+    border: none;
+    border-radius: 5px;
   }
   
   .hero h1 {
+    display: flex;
     font-size: 36px;
     font-weight: bold;
+    color: #ffffff;
     margin-bottom: 20px;
   }
   
   .hero p {
     font-size: 18px;
+    color: #ffffff;
     margin-bottom: 30px;
   }
   
@@ -22,15 +27,3 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
-  .featured-games {
-    padding: 50px 0;
-  }
-  
-  .game-card {
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 
-}

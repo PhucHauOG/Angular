@@ -6,14 +6,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bolder;
   font-size: 20px;
 
   .logo {
-    background-color: #E60012;
-    color: white;
+    .Nintendo-logo {
+      background-color: #E60012;
+      color: white;
+    }
   }
-  
+
+  .logo a:hover {
+    color: white;
+    font-weight: bolder;
+  }
+
+  .logo a:active {
+    color: #E60012;
+  }
+
   .main-nav {
 
     .main-nav-items {
@@ -24,35 +34,36 @@
       .main-nav-item {
         display: inline-block;
         text-decoration: none;
-        
-        .nav-log-in{
+
+        .nav-log-in {
           color: white;
         }
-        
-        .nav-product{
+
+        .nav-product {
           color: white;
         }
-        
-        .nav-cart{
+
+        .nav-cart {
           color: white;
         }
       }
 
       .main-nav-item a:hover {
         color: white;
+        font-weight: bolder;
       }
 
       .main-nav-item a:active {
         color: #E60012;
       }
 
-      .main-nav-item + .main-nav-item{
+      .main-nav-item+.main-nav-item {
         margin-left: 10px;
       }
     }
   }
 }
 
-.main-header > div {
-  display:  inline-block;
+.main-header>div {
+  display: inline-block;
 }

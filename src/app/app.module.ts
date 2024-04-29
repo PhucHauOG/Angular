@@ -7,15 +7,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FeaturedGameComponent } from './featured-game/featured-game.component';
 import { FooterComponent } from './footer/footer.component';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FeaturedGameComponent,
-    FooterComponent,
-    NavigationBarComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,

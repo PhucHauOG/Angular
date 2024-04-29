@@ -1,24 +1,58 @@
-.hero {
-    background-image: linear-gradient(to bottom, #E60012, #E60012);
-    padding: 2px auto 0;
-    margin: auto;
-    border: none;
-    border-radius: 10px;
+.main-header {
+  width: 100%;
+  height: 50px;
+  background-color: #E60012;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 20px;
+
+  .logo {
+    background-color: #E60012;
+    color: white;
   }
   
-  .hero h1 {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 36px;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 10px;
+  .main-nav {
+
+    .main-nav-items {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+
+      .main-nav-item {
+        display: inline-block;
+        text-decoration: none;
+        
+        .nav-log-in{
+          color: white;
+        }
+        
+        .nav-product{
+          color: white;
+        }
+        
+        .nav-cart{
+          color: white;
+        }
+      }
+
+      .main-nav-item a:hover {
+        color: white;
+      }
+
+      .main-nav-item a:active {
+        color: #E60012;
+      }
+
+      .main-nav-item + .main-nav-item{
+        margin-left: 10px;
+      }
+    }
   }
-  
-  .hero p {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
+}
+
+.main-header > div {
+  display:  inline-block;
+}

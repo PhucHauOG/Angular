@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FeaturedGameComponent } from './featured-game/featured-game.component';
 import { FooterComponent } from './footer/footer.component';
+import { FooterHeadingComponent } from './footer-heading/footer-heading.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FooterHeadingComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,7 +27,22 @@
   }
 
   .nav-search {
-    
+    display: flexbox;
+    justify-content: space-evenly;
+    height: 2rem;
+    width: 15rem; 
+    border-radius: 2rem;
+    border: white;
+    margin: 5px;
+    padding-left: 10px;
+  }
+
+  .nav-search-btn {
+    height: 2rem;
+    width: 4rem;
+    border-radius: 2rem;
+    border: white;
+
   }
 
   .main-nav {

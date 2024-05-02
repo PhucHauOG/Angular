@@ -1,0 +1,21 @@
+.footer-menu {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .footer-menus-legal {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer-menus-payment {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer-menus-social {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

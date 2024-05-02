@@ -1,16 +1,18 @@
 .footer-menu {
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
 
     .footer-menus-legal {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
     }
 
     .footer-menus-payment {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
     }
 

@@ -30,9 +30,11 @@ ul {
   }
 
   p {
-    margin: 5px;
-    height: 10rem;
-    width: 10rem;
+    display: contents;
+    justify-content: space-evenly;
+    height: 12rem;
+    width: 2%
+    ;
     text-align: left;
     
   }
@@ -42,8 +44,14 @@ ul {
     box-sizing: border-box;
     justify-content: space-evenly;
     margin: 10px;
+    margin-left: 5px;
     width: fit-content;
     height: 30px;
+
+    .btnBuyNow {    
+      margin-right: 15px;
+    }
+    
   }
 }
 

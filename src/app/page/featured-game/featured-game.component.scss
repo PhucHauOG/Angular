@@ -39,23 +39,8 @@ ul {
     
   }
 
-  .btn {
-    display: flex;
-    box-sizing: border-box;
-    justify-content: space-evenly;
-    margin: 10px;
-    margin-left: 5px;
-    width: fit-content;
-    height: 30px;
-
-    .btnBuyNow {    
-      margin-right: 15px;
-    }
-    
+  img {
+    width: 10rem;
+    height: 5rem;
   }
-}
-
-img {
-  width: 10rem;
-  height: 5rem;
 }

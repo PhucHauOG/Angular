@@ -1,0 +1,43 @@
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    
+    .row {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .col {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        text-align: center;
+        margin-left: 40px;
+        margin-right: 70px;
+    }
+
+    h2 {
+        padding-top: 24px;
+    }
+
+    .footer-heading-product {
+        display: inline-block;
+        vertical-align: auto;
+        padding: 16px;
+        margin: 8px;
+    }
+
+    .footer-heading-franshises {
+        display: inline-block;
+        vertical-align: auto;
+        padding: 16px;
+        margin: 8px;
+    }
+
+    .footer-heading-about {
+        display: inline-block;
+        vertical-align: auto;
+        padding: 16px;
+        margin: 8px;
+    }
+}

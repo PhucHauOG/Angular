@@ -1,0 +1,37 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    
+    .row {
+        display: flex;
+    }
+
+    .col {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .footer-menus-legal {
+        display: inline-block;
+        text-align: center;
+        padding: 16px;
+        margin: 8px;
+    }
+
+    .footer-menus-social {
+        display: inline-block;
+        text-align: center;
+        padding: 16px;
+        margin: 8px;
+    }
+
+    .footer-menus-payment {
+        display: inline-block;
+        justify-content: center;
+        padding: 16px;
+        margin: 8px;
+    }
+
+
+}

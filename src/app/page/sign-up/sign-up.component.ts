@@ -1,30 +1,20 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-sign-up',
   standalone: true,
-  imports: [FormsModule, SignUpComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  imports: [FormsModule],
+  templateUrl: './sign-up.component.html',
+  styleUrl: './sign-up.component.scss'
 })
-export class LoginComponent {
+export class SignUpComponent {
   signupUser: any[] = [];
   signupObj: any = {
     userName: '',
     email: '',
     password: ''
   };
-
-  loginObj: any = {
-    userName: '',
-    password: ''
-  };
-
-  constructor() {
-
-  }
 
   ngOnInit(): void {
     const localData = localStorage.getItem('signUpUsers');
@@ -42,14 +32,5 @@ export class LoginComponent {
       email: '',
       password: ''
     };
-  }
-
-  onLogin() {
-    const IsUserExist = this.signupUser.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);
-    if (IsUserExist != undefined) {
-      alert('User Login Successfully');
-    } else {
-      alert('Wrong Credential');
-    }
   }
 }

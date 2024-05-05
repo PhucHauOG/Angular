@@ -1,23 +1,29 @@
-<div class="topContainer">
-    <div class="main">
-        <input type="checkbox" id="chk" aria-hidden="true">
-        <div class="signup">
-            <form>
-                <label for="chk" aria-hidden="true">Sign up</label>
-                <input type="text" name="txt" placeholder="User name" [(ngModel)]="signupObj.userName">
-                <input type="email" name="email" placeholder="Email" [(ngModel)]="signupObj.email">
-                <input type="password" name="password" placeholder="password" [(ngModel)]="signupObj.password">
-                <button (click)="onSignUp()">Sign Up</button>
-            </form>
-        </div>
-    
-        <div class="login">
-            <form>
-                <label for="chk" aria-hidden="true">Login</label>
-                <input type="email" name="email" placeholder="Email" [(ngModel)]="loginObj.userName">
-                <input type="password" name="password" placeholder="password" [(ngModel)]="loginObj.password">
-                <button (click)="onLogin()">Login</button>
-            </form>
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html>
+<body>
+	<div class="main">
+		<h1>Enter your login credentials</h1>
+		<form action="">
+			<label for="first">
+				Email:
+			</label>
+			<input type="email" id="first" name="first" [(ngModel)]="loginObj.userName" placeholder="Enter your Email" required>
+			<label for="password">
+				Password:
+			</label>
+			<input type="password" id="password" name="password" [(ngModel)]="loginObj.password" placeholder="Enter your Password" required>
+
+			<div class="wrap">
+				<button type="submit" (click)="onLogin()">Login</button>
+			</div>
+		</form>
+		<p>Not registered? 
+			<a href="/signup"
+			style="text-decoration: none;">
+				Create an account
+			</a>
+		</p>
+	</div>
+</body>
+
+</html>

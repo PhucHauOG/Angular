@@ -4,8 +4,9 @@
             <div class="product-game-card">
                 <img src="{{ pg.image }}" alt="{{ pg.name }}">
                 <h3>{{ pg.name }}</h3><br>
-                <p>{{ pg.description }}</p><br>
-                <p>{{ pg.price }}</p>
+                <p>{{ pg.description }}</p>
+                <label>Price: </label><p>{{ pg.price }}</p>  
+                <button class="btn-add-to-cart">Add To Cart</button>
             </div>
         </li>
     </div>

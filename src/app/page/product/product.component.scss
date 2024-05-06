@@ -11,12 +11,11 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: left !important;
+    text-align: left;
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0;
     width: 15rem;
     height: 20rem;
   
@@ -28,13 +27,15 @@ ul {
       height: 3.5rem;
       margin: 2px;
     }
-  
+    
     p {
       display: contents;
-      justify-content: space-evenly;
+      justify-content: flex-start;
       height: 12rem;
-      width: 2%
-      ;
+      width: 2%;
+      margin: 10px;
+      padding: 10px;
+      text-wrap: balance;
       text-align: left;
       
     }
@@ -42,5 +43,13 @@ ul {
     img {
       width: 10rem;
       height: 5rem;
+    }
+
+    button {
+      text-align: center;
+      border-radius: 2rem;
+      margin: 10px;
+      height: 30px;
+      width: 80px;
     }
   }

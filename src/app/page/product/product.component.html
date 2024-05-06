@@ -1,1 +1,12 @@
-<p>product works!</p>
+<ul>
+    <div *ngFor="let pg of productgame">
+        <li>
+            <div class="product-game-card">
+                <img src="{{ pg.image }}" alt="{{ pg.name }}">
+                <h3>{{ pg.name }}</h3><br>
+                <p>{{ pg.description }}</p><br>
+                <p>{{ pg.price }}</p>
+            </div>
+        </li>
+    </div>
+</ul>

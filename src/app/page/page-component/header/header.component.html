@@ -1,19 +1,19 @@
 <header class="main-header">
-        <div class="logo"><a class="Nintendo-logo" href="/fearture-game">Nintendo</a>
+        <div class="logo"><a class="Nintendo-logo" routerLink="/fearture-game">Nintendo</a>
                 
         </div>
         <form>
-                <input type="text" class="nav-search" name="SearchBox" id="searchphrase"
+                <input type="text" class="nav-search" name="SearchBox" [(ngModel)]="searchphrase"
                         placeholder="Search for games, product,...">
-                <button class="nav-search-btn" >Search</button>
+                <button class="nav-search-btn" (click)="search()">Search</button>
         </form>
         <Nav class="main-nav">
                 <Ul class="main-nav-items">
                         <Li class="main-nav-item">
-                                <A class="nav-log-in" href="/login">Log In</A>
+                                <A class="nav-log-in" routerLink="/login">Log In</A>
                         </Li>
                         <Li class="main-nav-item">
-                                <A class="nav-product" href="#">Product</A>
+                                <A class="nav-product" routerLink="/product-game">Product</A>
                         </Li>
                         <Li class="main-nav-item">
                                 <A class="nav-cart" href="#">Cart</A>

@@ -1,10 +1,9 @@
-
 <!-- Featured games section -->
       <ul>
-        <div *ngFor="let game of featuredGames">
+        <div *ngFor="let game of featuregame">
           <li>
             <div class="game-card">
-              <img src="assets/img/{{ game.image }}" alt="{{ game.name }}">
+              <img src="{{ game.image }}" alt="{{ game.name }}">
               <h3>{{ game.name }}</h3><br>
               <p>{{ game.description }}</p> 
             </div>

@@ -1,55 +1,58 @@
 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  li {
+    margin: 1rem;
+  }
+}
+
+.product-game-card {
+  display: grid;
+  align-items: center;
+  text-align: left;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 1.5rem;
+  width: 20rem;
+  height: 25rem;
+
+  img {
     display: flex;
     justify-content: center;
-  
-    li {
-      margin: 1rem;
-    }
-  }
-  
-  .product-game-card {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: left;
-    margin-bottom: 20px;
-    padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 15rem;
-    height: 20rem;
-  
-    img {
-      display: flex;
-    }
-  
-    h3 {
-      height: 3.5rem;
-      margin: 2px;
-    }
-    
-    p {
-      display: contents;
-      justify-content: flex-start;
-      height: 12rem;
-      width: 2%;
-      margin: 10px;
-      padding: 10px;
-      text-wrap: balance;
-      text-align: left;
-      
-    }
-  
-    img {
-      width: 10rem;
-      height: 5rem;
-    }
-
-    button {
-      text-align: center;
-      border-radius: 2rem;
-      margin: 10px;
-      height: 30px;
-      width: 80px;
-    }
+    border-radius: 1rem;
+    width: 17.5rem;
+    height: 10rem;
   }
+
+  h3 {
+    height: 3.5rem;
+    margin: 2px;
+  }
+
+  p {
+    display: contents;
+    justify-content: flex-start;
+    height: 12rem;
+    width: 2%;
+    margin: 10px;
+    padding: 10px;
+    text-wrap: balance;
+    text-align: left;
+
+  }
+
+  button {
+    display: block;
+    float: right;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    margin-left: auto;
+    height: 30px;
+    width: 80px;
+  }
+}

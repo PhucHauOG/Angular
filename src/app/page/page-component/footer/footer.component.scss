@@ -27,14 +27,14 @@
     }
 
     .footer-menus-payment {
-        display: inline-block;
-        justify-content: center;
+        display: flex;
+        justify-content: space-evenly;
         padding: 16px;
         margin: 8px;
     }
 
     .payment-method-icon {
-        height: auto;
-        width: auto;
+        height: 4rem;
+        width: 6rem;
     }
 }

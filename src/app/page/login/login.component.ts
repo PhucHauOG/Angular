@@ -19,7 +19,7 @@ export class LoginComponent {
   };
 
   loginObj: any = {
-    userName: '',
+    email: '',
     password: ''
   };
 
@@ -46,7 +46,7 @@ export class LoginComponent {
   }
 
   onLogin() {
-    const IsUserExist = this.signupUser.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);
+    const IsUserExist = this.signupUser.find(m => m.email == this.loginObj.email && m.password == this.loginObj.password);
     if (IsUserExist != undefined) {
       alert('User Login Successfully');
     } else {

@@ -15,28 +15,28 @@ export class ProductGameService {
                 name: 'The Legend of Zelda: Breath of the Wild',
                 image: '/assets/img/zelda-botw.jpg',
                 description: 'Explore the vast open world of Hyrule in this critically acclaimed adventure',
-                price: '$10'
+                price: '$59.99'
             },
             {
                 id: '2',
                 name: 'Super Mario Odyssey',
                 image: '/assets/img/mario-odyssey.jpg',
                 description: 'Join Mario on a thrilling adventure across various kingdoms to rescue Princess Peach',
-                price: '$10'
+                price: '$59.99'
             },
             {
                 id: '3',
                 name: 'Super Smash Bros. Ultimate',
                 image: '/assets/img/smash-bros-ultimate.jpg',
                 description: 'Fight it out with your favorite Nintendo characters in this iconic fighting game',
-                price: '$10'
+                price: '$59.99'
             },
             {
                 id: '4',
                 name: 'Mario Kart 8 Deluxe',
                 image: '/assets/img/mario-kart-8-deluxe.jpg',
                 description: 'Race with your favorite Nintendo characters in this high-speed karting game',
-                price: '$15'
+                price: '$59.99'
             },
             {
                 id: '5',

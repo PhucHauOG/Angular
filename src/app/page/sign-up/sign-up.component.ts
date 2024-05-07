@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, LoginComponent, RouterModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'
 })

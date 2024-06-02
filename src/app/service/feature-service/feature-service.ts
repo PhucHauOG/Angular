@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core"
-import { FeatureGame } from "src/app/shared/model/feature-game"
+import { FeatureGame } from "src/app/shared/model/feature/feature-game"
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class FeatureGameService {
+export class FeatureService {
     constructor() { }
 
     getAll():FeatureGame[] {

@@ -1,38 +1,46 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule ,FormsModule, FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { CommonModule, NgIf } from '@angular/common';
+import { AuthService } from 'src/app/service/auth-service/auth.service';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [FormsModule, LoginComponent, RouterModule],
+  imports: [FormsModule, LoginComponent, RouterModule, ReactiveFormsModule, CommonModule, NgIf],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'
 })
-export class SignUpComponent {
-  signupUser: any[] = [];
-  signupObj: any = {
-    userName: '',
-    email: '',
-    password: ''
-  };
+export class SignUpComponent implements OnInit {
+  signUpForm: FormGroup;
+  signUpError: boolean = false;
 
-  ngOnInit(): void {
-    const localData = localStorage.getItem('signUpUsers');
-    if (localData != null) {
-      this.signupUser = JSON.parse(localData);
-    }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+    this.signUpForm = this.fb.group({
+      userName: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      Email: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      Password: new FormControl("", [Validators.required, Validators.minLength(8)])
+    });
+  }
+
+  ngOnInit(): void { 
+    
   }
 
 
-  onSignUp() {
-    this.signupUser.push(this.signupObj);
-    localStorage.setItem('signUpUser', JSON.stringify(this.signupUser))
-    this.signupObj = {
-      userName: '',
-      email: '',
-      password: ''
-    };
+  signUp() {
+    if (this.signUpForm.valid){
+      const {username, email, password} = this.signUpForm.value;
+      this.authService.signup(username, email, password).subscribe({
+        next: () => {
+          this.router.navigate(['/login']);
+          this.signUpError = false;
+        },
+        error: () => {
+          this.signUpError = true;
+        }
+      });
+    }
   }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductGameService } from 'src/app/service/product-game-service/product-game-service';
-import { ProductGame } from 'src/app/shared/model/product-game';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/service/product-service/product-service';
+import { ProductGame } from 'src/app/shared/model/product/product-game';
 import { CartService } from 'src/app/service/cart-service/cart-service';
+import { GamesService } from 'src/app/service/game-service/games.service';
 
 @Component({
   selector: 'app-product',
@@ -11,23 +12,28 @@ import { CartService } from 'src/app/service/cart-service/cart-service';
 export class ProductComponent implements OnInit {
 
   productgame:ProductGame [] = [];
-  filteredProducts:ProductGame [] = this.productgame;
+  search:string = "";
+
+  displayGame(){
+    return this.productgame.filter(g=>g.name.includes(this.search));
+  }
+
   
-  constructor(private pg:ProductGameService, private cartService:CartService) { }
-
+  constructor(public pg:ProductService, public gamesService:GamesService) { }
+  
   ngOnInit(): void {
-    this.productgame = this.pg.getAll();
-
+    // this.productgame = this.pg.getAll();
+    this.gamesService.gameSubject.subscribe((game) => {
+      this.productgame = game;
+    })
+    this.gamesService.searchSubject.subscribe((query)=>{
+      this.search = query;
+    })
+    this.getGames();
   }
 
-  onSearch(searchphrase: string): void {
-    this.filteredProducts = this.productgame.filter(productgame =>
-      productgame.name.toLowerCase().includes(searchphrase.toLowerCase())
-    );
+  getGames(): void {
+    this.gamesService.getGames();
   }
 
-  addToCart(productgame: ProductGame) {
-    this.cartService.addToCart(productgame);
-    window.alert('Your product has been added to the cart!');
-  }
 }

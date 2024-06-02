@@ -1,13 +1,12 @@
 <ul>
-    <div *ngFor="let pg of productgame">
+    <div *ngFor="let pg of displayGame()">
         <li>
             <div class="product-game-card">
-                <img src="{{ pg.image }}" alt="{{ pg.name }}">
+                <img src="{{'../../../assets/img/' + pg.image}}" alt="{{ pg.name }}">
                 <h3>{{ pg.name }}</h3><br>
-                <p>{{ pg.description }}</p>
-                <br>
-                <p>Price: {{ pg.price }}</p>  
-                <button class="btn-add-to-cart" type="button">Add To Cart</button>
+                <p>{{ pg.description }}</p><br><br>
+                <p>Price: ${{ pg.price }}</p>
+                <button class="btn-add-to-cart" type="button" >Add To Cart</button>
             </div>
         </li>
     </div>

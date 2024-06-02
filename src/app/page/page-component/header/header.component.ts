@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
-import { ProductGame } from 'src/app/shared/model/product-game';
-import { ProductGameService } from 'src/app/service/product-game-service/product-game-service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth-service/auth.service';
+import { Router } from '@angular/router';
+import { GamesService } from 'src/app/service/game-service/games.service';
 
 @Component({
   selector: 'app-header',
@@ -9,22 +10,41 @@ import { ProductGameService } from 'src/app/service/product-game-service/product
 })
 
 export class HeaderComponent implements OnInit {
-  searchphrase: string = '';
+  query: string = '';
+  userName: string = '';
 
-  productgame:ProductGame [] = [];
-  filterproductgame:ProductGame [] = this.productgame;
-
-  constructor(private pg: ProductGameService) {}
+  constructor(private authService: AuthService, private router: Router, private gameService: GamesService) { }
 
   ngOnInit(): void {
-    this.search();
+    this.isLoggedIn();
   }
 
-  
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+    }
 
-  search() {
-    this.filterproductgame = this.productgame.filter(
-      productgame => productgame.name.toLocaleLowerCase().includes(this.searchphrase.toLowerCase())
-    );  
+  getUsername(): string {
+    return this.authService.getUsername();
+  }
+
+  hasRole(role: string): boolean {
+    return this.authService.getRoles().includes(role);
+  }
+
+  // navigateToLogin() {
+  //   this.router.navigate(['/login']);
+  // }
+
+  // navigateToSignUp() {
+  //   this.router.navigate(['/signup']);
+  // }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  search(): void {
+    this.gameService.searchSubject.next(this.query);
   }
 }

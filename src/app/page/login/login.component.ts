@@ -1,56 +1,54 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule, FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { SignUpComponent } from '../sign-up/sign-up.component';
+import { CommonModule, NgIf } from '@angular/common';
+import { AuthService } from 'src/app/service/auth-service/auth.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, SignUpComponent, RouterModule],
+  imports: [FormsModule, SignUpComponent, RouterModule, ReactiveFormsModule, CommonModule, NgIf],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
-  signupUser: any[] = [];
-  signupObj: any = {
-    userName: '',
-    email: '',
-    password: ''
-  };
+export class LoginComponent implements OnInit {
+  username: string = '';
+  password: string = '';
+  loginError: boolean = false;
+  loginForm!: FormGroup;
 
-  loginObj: any = {
-    email: '',
-    password: ''
-  };
-
-  constructor() {
-
-  }
+  constructor(public authService: AuthService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    const localData = localStorage.getItem('signUpUsers');
-    if (localData != null) {
-      this.signupUser = JSON.parse(localData);
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    });
+  }
+
+  login() {
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+      this.authService.login(username, password).subscribe({
+        next: (response) => {
+          this.router.navigate(['/']);
+          this.loginError = false;
+        },
+        error: (error) => {
+          this.loginError = true;
+        }
+      });
     }
   }
 
-
-  onSignUp() {
-    this.signupUser.push(this.signupObj);
-    localStorage.setItem('signUpUser', JSON.stringify(this.signupUser))
-    this.signupObj = {
-      userName: '',
-      email: '',
-      password: ''
-    };
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 
-  onLogin() {
-    const IsUserExist = this.signupUser.find(m => m.email == this.loginObj.email && m.password == this.loginObj.password);
-    if (IsUserExist != undefined) {
-      alert('User Login Successfully');
-    } else {
-      alert('Wrong Credential');
-    }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

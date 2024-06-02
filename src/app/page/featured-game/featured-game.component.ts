@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FeatureGameService } from 'src/app/service/feature-game-service/feature-game-service';
-import { FeatureGame } from 'src/app/shared/model/feature-game';
+import { FeatureService } from 'src/app/service/feature-service/feature-service';
+import { GamesService } from 'src/app/service/game-service/games.service';
+import { FeatureGame } from 'src/app/shared/model/feature/feature-game';
+import { ProductGame } from 'src/app/shared/model/product/product-game';
 
 @Component({
   selector: 'app-featured-game',
@@ -9,18 +11,17 @@ import { FeatureGame } from 'src/app/shared/model/feature-game';
 })
 export class FeaturedGameComponent implements OnInit {
   featuregame:FeatureGame [] = [];
-  filteredGames:FeatureGame [] = this.featuregame;
+  productgame:ProductGame [] = [];
 
-  constructor(private fg:FeatureGameService) { }
+  constructor(private fg:FeatureService, private gameService: GamesService) { }
 
   ngOnInit(): void {
     this.featuregame = this.fg.getAll();
+    this.gameService.searchSubject.subscribe((query)=>{
+      if(query!==""){
+        this.gameService.search(query).subscribe((game => this.productgame = game));
+      }
+    })
 
-  }
-  
-  onSearch(searchphrase: string): void {
-    this.filteredGames = this.featuregame.filter(featuredgames =>
-      featuredgames.name.toLowerCase().includes(searchphrase.toLowerCase())
-    );
   }
 }

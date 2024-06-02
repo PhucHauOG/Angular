@@ -1,30 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 	<div class="main">
 		<h1>Enter your signup credentials</h1>
-		<form action="">
-            <label for="first">
-				UserName:
-			</label>
-			<input type="text" id="name" name="txt" [(ngModel)]="signupObj.userName" placeholder="Enter your Email" required>
-			<label for="first">
-				Email:
-			</label>
-			<input type="email" id="email" name="first" [(ngModel)]="signupObj.email" placeholder="Enter your Email" required>
-			<label for="password">
-				Password:
-			</label>
-			<input type="password" id="password" name="password" [(ngModel)]="signupObj.password" placeholder="Enter your Password" required>
+		<form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+			<label for="username">User Name: </label>
+			<input id="username" type="text" formControlName="userName">
+			<div
+				*ngIf="signUpForm.get('userName')?.invalid && (signUpForm.get('userName')?.dirty || signUpForm.get('userName')?.touched)">
+				<div *ngIf="signUpForm.get('userName')?.errors?.['required']">
+					User Name is required.
+				</div>
+				<div *ngIf="signUpForm.get('userName')?.errors?.['minlength']">
+					User Name must be at least 5 characters long.
+				</div>
+			</div>
+			<br>
+
+			<label for="email">Email: </label>
+			<input id="email" type="email" formControlName="Email">
+			<div
+				*ngIf="signUpForm.get('Email')?.invalid && (signUpForm.get('Email')?.dirty || signUpForm.get('Email')?.touched)">
+				<div *ngIf="signUpForm.get('Email')?.errors?.['required']">
+					Email is required.
+				</div>
+				<div *ngIf="signUpForm.get('Email')?.errors?.['minlength']">
+					Email must be at least 5 characters long.
+				</div>
+			</div>
+			<br>
+
+			<label for="password">Password: </label>
+			<input id="password" type="password" formControlName="Password">
+			<div
+				*ngIf="signUpForm.get('Password')?.invalid && (signUpForm.get('Password')?.dirty || signUpForm.get('Password')?.touched)">
+				<div *ngIf="signUpForm.get('Password')?.errors?.['required']">
+					Password is required.
+				</div>
+				<div *ngIf="signUpForm.get('Password')?.errors?.['minlength']">
+					Password must be at least 8 characters long.
+				</div>
+			</div>
+			<br>
 
 			<div class="wrap">
-				<button type="submit" (click)="onSignUp()">SignUp</button>
+				<button type="submit" [disabled]="!signUpForm.valid">SignUp</button>
 			</div>
+			<p>Already have an account?
+				<a routerLink="/login" style="text-decoration: none;">Login</a>
+			</p>
 		</form>
-		<p>Already have an account? 
-			<a routerLink="/login" style="text-decoration: none;">Login</a>
-		</p>
 	</div>
 </body>
+
 
 </html>

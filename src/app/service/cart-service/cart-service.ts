@@ -1,4 +1,4 @@
-import { ProductGame } from "src/app/shared/model/product-game";
+import { ProductGame } from "src/app/shared/model/product/product-game";
 import { Injectable } from "@angular/core";
 
 @Injectable({

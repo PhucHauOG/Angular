@@ -1,24 +1,33 @@
 <header class="main-header">
         <div class="logo"><a class="Nintendo-logo" routerLink="/fearture-game">Nintendo</a>
-                
+
         </div>
         <form>
-                <input type="text" class="nav-search" name="SearchBox" [(ngModel)]="searchphrase"
+                <input type="text" class="nav-search" name="SearchBox" [(ngModel)]="query"
                         placeholder="Search for games, product,...">
                 <button class="nav-search-btn" (click)="search()">Search</button>
         </form>
-        <Nav class="main-nav">
+        <nav class="main-nav">
                 <Ul class="main-nav-items">
-                        <Li class="main-nav-item">
-                                <A class="nav-log-in" routerLink="/login">Log In</A>
-                        </Li>
-                        <Li class="main-nav-item">
-                                <A class="nav-product" routerLink="/product-game">Product</A>
-                        </Li>
-                        <Li class="main-nav-item">
-                                <A class="nav-cart" href="#">Cart</A>
-                        </Li>
+                        <li class="main-nav-item">
+                                <div *ngIf="!isLoggedIn()">
+                                        <a class="nav-log-in" routerLink="/login">Log In</a>
+                                </div>
+                                <div *ngIf="isLoggedIn()">
+                                        <a class="nav-log-out">Welcome, {{getUsername()}}!</a>
+                                        <a class="nav-log-out" type="submit" (click)="logout()">Logout</a>
+                                </div>
+                                <div *ngIf="isLoggedIn() && hasRole('Admin')">
+                                        <a  routerLink="/admin">DashBoard</a> 
+                                </div>
+                        </li>
+                        <li class="main-nav-item">
+                                <a class="nav-product" routerLink="/product-game">Product</a>
+                        </li>
+                        <li class="main-nav-item">
+                                <a class="nav-cart" href="#">Cart</a>
+                        </li>
 
                 </Ul>
-        </Nav>
+        </nav>
 </header>

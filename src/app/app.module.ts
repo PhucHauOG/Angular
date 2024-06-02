@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,10 @@ import { FeaturedGameComponent } from './page/featured-game/featured-game.compon
 import { FooterComponent } from './page/page-component/footer/footer.component';
 import { FooterHeadingComponent } from './page/page-component/footer-heading/footer-heading.component';
 import { ProductComponent } from './page/product/product.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthService } from './service/auth-service/auth.service';
+import { AuthGuardService } from './service/auth-guard/auth-guard.service';
+import { AdminComponent } from './page/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +27,18 @@ import { ProductComponent } from './page/product/product.component';
     BrowserModule,
     AppRoutingModule,
     FooterHeadingComponent,
-    FormsModule
-
+    FormsModule,
+    ReactiveFormsModule,
+    AdminComponent,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('token'),
+        allowedDomains: ['https://localhost:7080']
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

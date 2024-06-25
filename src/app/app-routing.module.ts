@@ -6,6 +6,8 @@ import { FeaturedGameComponent } from './page/featured-game/featured-game.compon
 import { ProductComponent } from './page/product/product.component';
 import { AuthGuardService } from './service/auth-guard/auth-guard.service';
 import { AdminComponent } from './page/admin/admin.component';
+import { AdminDashboardComponent } from './page/admin-dashboard/admin-dashboard.component';
+import { AddComponent } from './page/add/add.component';
 
 const routes: Routes = [
 
@@ -15,15 +17,21 @@ const routes: Routes = [
 
   { path: 'signup', component: SignUpComponent },
 
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService], data: { role: ['Admin'] }},
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService], data: { role: ['Admin'] } },
+
+  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuardService], data: { role: ['Admin'] } },
+
+  { path: 'add', component: AddComponent, canActivate: [AuthGuardService], data: { role: ['Admin'] } },
 
   { path: 'fearture-game', component: FeaturedGameComponent },
 
-  { path: 'search/', component: ProductComponent, children:[
-    {path: ':name', component: ProductComponent}
-  ]},
+  {
+    path: 'search/', component: ProductComponent, children: [
+      { path: ':name', component: ProductComponent }
+    ]
+  },
 
-  { path: 'product-game', component: ProductComponent}
+  { path: 'product-game', component: ProductComponent }
 ];
 
 @NgModule({

@@ -10,24 +10,20 @@
         <nav class="main-nav">
                 <Ul class="main-nav-items">
                         <li class="main-nav-item">
-                                <div *ngIf="!isLoggedIn()">
-                                        <a class="nav-log-in" routerLink="/login">Log In</a>
+                                <div>
+                                        <a *ngIf="!isLoggedIn()" class="nav-log-in" routerLink="/login">Log In</a>
+                                        <a class="nav-log-out" *ngIf="isLoggedIn()">Welcome, {{getUsername()}}!</a>
+                                        <a class="nav-log-out" *ngIf="isLoggedIn()" type="submit" (click)="logout()">Logout</a>
                                 </div>
-                                <div *ngIf="isLoggedIn()">
-                                        <a class="nav-log-out">Welcome, {{getUsername()}}!</a>
-                                        <a class="nav-log-out" type="submit" (click)="logout()">Logout</a>
-                                </div>
+                        </li>
+                        <li class="main-nav-item">
                                 <div *ngIf="isLoggedIn() && hasRole('Admin')">
-                                        <a  routerLink="/admin">DashBoard</a> 
+                                        <a class="nav-dashboard" routerLink="/admin-dashboard">DashBoard</a>
                                 </div>
                         </li>
                         <li class="main-nav-item">
                                 <a class="nav-product" routerLink="/product-game">Product</a>
                         </li>
-                        <li class="main-nav-item">
-                                <a class="nav-cart" href="#">Cart</a>
-                        </li>
-
                 </Ul>
         </nav>
 </header>

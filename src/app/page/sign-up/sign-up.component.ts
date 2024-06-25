@@ -28,7 +28,6 @@ export class SignUpComponent implements OnInit {
     
   }
 
-
   signUp() {
     if (this.signUpForm.valid){
       const {username, email, password} = this.signUpForm.value;

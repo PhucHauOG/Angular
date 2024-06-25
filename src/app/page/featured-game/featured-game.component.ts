@@ -10,18 +10,19 @@ import { ProductGame } from 'src/app/shared/model/product/product-game';
   styleUrls: ['./featured-game.component.scss']
 })
 export class FeaturedGameComponent implements OnInit {
-  featuregame:FeatureGame [] = [];
-  productgame:ProductGame [] = [];
+  productgame: ProductGame[] = [];
 
-  constructor(private fg:FeatureService, private gameService: GamesService) { }
+  constructor(private gameService: GamesService) { }
 
   ngOnInit(): void {
-    this.featuregame = this.fg.getAll();
-    this.gameService.searchSubject.subscribe((query)=>{
-      if(query!==""){
+
+  }
+  search() {
+    this.gameService.searchSubject.subscribe((query) => {
+      if (query != "") {
         this.gameService.search(query).subscribe((game => this.productgame = game));
+        console.log(query)
       }
     })
-
   }
 }

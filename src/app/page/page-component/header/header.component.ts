@@ -31,14 +31,6 @@ export class HeaderComponent implements OnInit {
     return this.authService.getRoles().includes(role);
   }
 
-  // navigateToLogin() {
-  //   this.router.navigate(['/login']);
-  // }
-
-  // navigateToSignUp() {
-  //   this.router.navigate(['/signup']);
-  // }
-
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
@@ -46,5 +38,6 @@ export class HeaderComponent implements OnInit {
 
   search(): void {
     this.gameService.searchSubject.next(this.query);
+    console.log(this.query)
   }
 }

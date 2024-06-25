@@ -13,16 +13,10 @@ export class ProductComponent implements OnInit {
 
   productgame:ProductGame [] = [];
   search:string = "";
-
-  displayGame(){
-    return this.productgame.filter(g=>g.name.includes(this.search));
-  }
-
   
   constructor(public pg:ProductService, public gamesService:GamesService) { }
   
   ngOnInit(): void {
-    // this.productgame = this.pg.getAll();
     this.gamesService.gameSubject.subscribe((game) => {
       this.productgame = game;
     })
@@ -36,4 +30,7 @@ export class ProductComponent implements OnInit {
     this.gamesService.getGames();
   }
 
+  displayGame(){
+    return this.productgame.filter(g=>g.name.includes(this.search));
+  }
 }

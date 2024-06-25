@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,12 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AuthService } from './service/auth-service/auth.service';
 import { AuthGuardService } from './service/auth-guard/auth-guard.service';
 import { AdminComponent } from './page/admin/admin.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { AddComponent } from './page/add/add.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,7 @@ import { AdminComponent } from './page/admin/admin.component';
     HeaderComponent,
     FeaturedGameComponent,
     FooterComponent,
-    ProductComponent
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,13 +36,19 @@ import { AdminComponent } from './page/admin/admin.component';
     FormsModule,
     ReactiveFormsModule,
     AdminComponent,
+    MatToolbarModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('token'),
         allowedDomains: ['https://localhost:7080']
       }
-    })
+    }),
+    MatTableModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    AddComponent
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

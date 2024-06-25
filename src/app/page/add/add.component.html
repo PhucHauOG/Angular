@@ -1,0 +1,28 @@
+<div class="add-product">
+    <h1>Add New Game</h1>
+    <p class="message-p">{{addProductMessage}}</p>
+    <form [formGroup]="gameForm" (ngSubmit)="submit()" class="common-form">
+        <input type="text" class="form-input" placeholder="Enter Name" name="Name" id="Name" formControlName="Name" />
+        <div *ngIf="gameForm.get('name')?.invalid && gameForm.get('name')?.touched">
+            Name is required.
+        </div>
+        <input type="file" class="form-input" placeholder="Enter Image URL" name="Image" id="Image"
+            formControlName="Image" accept="Image/" (change)="onFileChange($event)"/>
+        <div *ngIf="gameForm.get('Image')?.invalid && gameForm.get('Image')?.touched">
+            Image URL is required.
+        </div>
+        <input type="text" class="form-input" placeholder="Enter Product Description" name="Description"
+            id="Description" formControlName="Description" />
+        <div *ngIf="gameForm.get('Description')?.invalid && gameForm.get('Description')?.touched">
+            Description is required.
+        </div>
+        <input type="text" class="form-input" placeholder="Price" name="Price" id="Price" formControlName="Price" />
+        <div *ngIf="gameForm.get('Price')?.invalid && gameForm.get('Price')?.touched">
+            <div *ngIf="gameForm.get('Price')?.errors?.['required']">Price is required.</div>
+            <div *ngIf="gameForm.get('Price')?.errors?.['pattern']">Invalid price format. Use numbers with up to 2
+                decimal
+                places.</div>
+        </div>
+        <button class="form-button">Add Game</button>
+    </form>
+</div>

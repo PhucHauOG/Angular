@@ -1,28 +1,30 @@
-<div class="login-container">
-	<h2>Login</h2>
-	<form [formGroup]="loginForm" (ngSubmit)="login()">
-		<div>
-			<label for="username">Username: </label>
-			<input type="text" id="username" name="username" class="form-control" formControlName="username" required />
-			<div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error">
-				Username is required.
+<body>
+	<div class="login-container">
+		<h2>Login</h2>
+		<form [formGroup]="loginForm" (ngSubmit)="login()">
+			<div>
+				<label for="username">Username: </label>
+				<input type="text" id="username" name="username" class="form-control" formControlName="username" required />
+				<div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error">
+					Username is required.
+				</div>
 			</div>
-		</div>
-		<div>
-			<label for="password">Password: </label>
-			<input type="password" id="password" name="password" formControlName="password" required />
-			<div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
-				Password is required.
+			<div>
+				<label for="password">Password: </label>
+				<input type="password" id="password" name="password" formControlName="password" required />
+				<div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+					Password is required.
+				</div>
 			</div>
-		</div>
-		<button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
-		<div *ngIf="loginError" class="error">
-			Invalid username or password.
-		</div>
-		<p>Not Signed Up?
-			<a routerLink="/signup" style="text-decoration: none;">
-				Create an account
-			</a>
-		</p>
-	</form>
-</div>
+			<button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+			<div *ngIf="loginError" class="error">
+				Invalid username or password.
+			</div>
+			<p>Not Signed Up?
+				<a routerLink="/signup" style="text-decoration: none;">
+					Create an account
+				</a>
+			</p>
+		</form>
+	</div>
+</body>
